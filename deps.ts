@@ -15,7 +15,7 @@ export {
 } from 'https://deno.land/x/oak@v6.3.1/mod.ts';
 
 // dotenv
-export { config } from 'https://deno.land/x/dotenv/mod.ts';
+export { config } from 'https://deno.land/x/dotenv@v0.5.0/mod.ts';
 
 // mongo
 export { MongoClient } from 'https://deno.land/x/mongo@v0.12.1/mod.ts';
@@ -28,4 +28,3 @@ export { default as React } from 'https://dev.jspm.io/react@16.14.0';
 export { default as ReactDOMServer } from 'https://dev.jspm.io/react-dom@16.14.0/server';
 
 // import * as bcrypt from "https://deno.land/x/bcrypt@v0.2.4/mod.ts"  // in case we want bcrypt
-
