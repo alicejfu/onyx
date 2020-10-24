@@ -11,16 +11,17 @@ const port: number = Number(Deno.env.get('PORT')) || 4000;
 const app: Application = new Application();
 
 // session
-const session = new Session({ framework: 'oak' });
+const session = new Session({
+  framework: 'oak',
+  store: 'memory',
+  // store: 'redis',
+  // hostname: '127.0.0.1',
+  // hostname: Deno.env.get('MY_IP'),
+  // port: 6379,
+});
+
 await session.init();
-app.use(
-  session.use()(session, {
-    path: '/w35235',
-    httpOnly: false,
-    secure: false, // not accessable via JS
-    // maxAge: 6000, //
-  })
-); // seems to be setting the sid cookie no matter what
+app.use(session.use()(session)); // session module not set up to take in cookie config
 
 const browserBundlePath: string = '/browser.js';
 
